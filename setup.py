@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='vbox',
-    version='2026.01.17.064542',
+    version='2026.01.17.070023',
     author='jererc',
     author_email='jererc@gmail.com',
     url='https://github.com/jererc/vbox',

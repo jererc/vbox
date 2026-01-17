@@ -12,8 +12,8 @@ class Virtualbox:
     bin_file = {'linux': '/usr/bin/VBoxManage',
                 'win32': r'C:\Program Files\Oracle\VirtualBox\VBoxManage.exe'}[sys.platform]
 
-    def __init__(self, interactive=False):
-        self.creationflags = subprocess.CREATE_NO_WINDOW if sys.platform == 'win32' and not interactive else 0
+    def __init__(self, headless=True):
+        self.creationflags = subprocess.CREATE_NO_WINDOW if sys.platform == 'win32' and headless else 0
 
     def _list(self, command):
         stdout = subprocess.check_output([self.bin_file, 'list', command], creationflags=self.creationflags)
