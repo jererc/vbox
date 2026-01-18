@@ -13,6 +13,8 @@ class Virtualbox:
                 'win32': r'C:\Program Files\Oracle\VirtualBox\VBoxManage.exe'}[sys.platform]
 
     def __init__(self, headless=True):
+        if not os.path.exists(self.bin_file):
+            raise FileNotFoundError(f'{self.bin_file} not found')
         self.creationflags = subprocess.CREATE_NO_WINDOW if sys.platform == 'win32' and headless else 0
 
     def _list(self, command):
